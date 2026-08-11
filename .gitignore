@@ -1,0 +1,19 @@
+# Go
+backend/server
+backend/api
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Docker
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
