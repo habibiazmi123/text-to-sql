@@ -44,6 +44,7 @@ class SummarizeResponse(BaseModel):
 class RetryRequest(BaseModel):
     question: str
     max_retries: int = 2
+    history: list[dict] = []
 
 
 class RetryResponse(BaseModel):
@@ -54,6 +55,8 @@ class RetryResponse(BaseModel):
     is_valid: bool
     validation_error: str = ""
     retries_used: int = 0
+    needs_clarify: bool = False
+    clarify_text: str = ""
 
 
 class RetrieveRequest(BaseModel):
@@ -128,6 +131,14 @@ async def generate_with_retry(req: RetryRequest):
     except Exception:
         examples = ""
 
+    history_text = ""
+    if req.history:
+        history_lines = []
+        for msg in req.history[-6:]:
+            role = "User" if msg.get("role") == "user" else "Assistant"
+            history_lines.append(f"{role}: {msg.get('content', '')}")
+        history_text = "\n\nCONVERSATION HISTORY:\n" + "\n".join(history_lines)
+
     last_sql = ""
     last_reasoning = ""
     last_tables_used = []
@@ -139,13 +150,25 @@ async def generate_with_retry(req: RetryRequest):
         if last_error:
             error_context = f"\n\nPREVIOUS ATTEMPT FAILED:\nSQL: {last_sql}\nError: {last_error}\n\nFix the SQL query based on this error."
 
-        user_prompt = build_sql_prompt(req.question, schema, rules, examples) + error_context
+        user_prompt = build_sql_prompt(req.question, schema, rules, examples) + history_text + error_context
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},
         ]
         response = chat_completion(messages)
         result = parse_llm_sql_response(response)
+
+        if result.get("needs_clarify"):
+            return RetryResponse(
+                sql="",
+                reasoning="",
+                tables_used=[],
+                confidence=0.0,
+                is_valid=False,
+                needs_clarify=True,
+                clarify_text=result.get("clarify_text", "Could you clarify your question?"),
+                retries_used=attempt,
+            )
 
         last_sql = result.get("sql", "")
         last_reasoning = result.get("reasoning", "")

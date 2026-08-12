@@ -13,7 +13,11 @@ Rules:
    - confidence: 0.0 to 1.0
 4. Use PostgreSQL syntax
 5. Use proper JOINs based on foreign keys
-6. Return results in the exact JSON format"""
+6. Consider conversation history for context (e.g., "that" or "same" refers to previous query)
+7. If the question is ambiguous, vague, or missing required info, return:
+   {"needs_clarify": true, "clarify_text": "your clarifying question here"}
+8. For complex questions, plan step-by-step using CTEs (WITH clauses)
+9. Return results in the exact JSON format"""
 
 
 def build_sql_prompt(question: str, schema: str, rules: str = "", examples: str = "") -> str:
@@ -27,7 +31,10 @@ def build_sql_prompt(question: str, schema: str, rules: str = "", examples: str 
 
     parts.append(f"USER QUESTION: {question}")
     parts.append("""Generate the SQL query. Return ONLY valid JSON:
-{"sql": "...", "reasoning": "...", "tables_used": [...], "confidence": 0.0}""")
+{"sql": "...", "reasoning": "...", "tables_used": [...], "confidence": 0.0}
+
+If the question is ambiguous, return:
+{"needs_clarify": true, "clarify_text": "your clarifying question here"}""")
 
     return "\n\n".join(parts)
 
@@ -43,7 +50,7 @@ def parse_llm_sql_response(response: str) -> dict:
                 return json.loads(match.group())
             except json.JSONDecodeError:
                 pass
-        return {"sql": response.strip(), "reasoning": "", "tables_used": [], "confidence": 0.5}
+        return {"sql": response.strip(), "reasoning": "", "tables_used": [], "confidence": 0.5, "needs_clarify": False}
 
 
 def generate_sql(question: str, schema: str, rules: str = "", examples: str = "") -> dict:

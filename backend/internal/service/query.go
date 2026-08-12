@@ -29,7 +29,7 @@ func NewQueryService(db *gorm.DB, cfg *config.Config) *QueryService {
 }
 
 func (s *QueryService) ExecuteQuery(req model.QueryRequest) (*model.QueryResponse, error) {
-	genReq, _ := json.Marshal(map[string]string{"question": req.Question})
+	genReq, _ := json.Marshal(map[string]interface{}{"question": req.Question, "history": req.History})
 	resp, err := s.client.Post(s.cfg.AIServiceURL+"/ai/generate-with-retry", "application/json", bytes.NewReader(genReq))
 	if err != nil {
 		return nil, fmt.Errorf("failed to call AI service: %w", err)
@@ -45,8 +45,18 @@ func (s *QueryService) ExecuteQuery(req model.QueryRequest) (*model.QueryRespons
 		IsValid       bool     `json:"is_valid"`
 		ValidationErr string   `json:"validation_error"`
 		RetriesUsed   int      `json:"retries_used"`
+		NeedsClarify  bool     `json:"needs_clarify"`
+		ClarifyText   string   `json:"clarify_text"`
 	}
 	json.Unmarshal(body, &genResult)
+
+	if genResult.NeedsClarify {
+		return &model.QueryResponse{
+			Question:     req.Question,
+			NeedsClarify: true,
+			ClarifyText:  genResult.ClarifyText,
+		}, nil
+	}
 
 	if !genResult.IsValid {
 		return &model.QueryResponse{

@@ -2,8 +2,14 @@ package model
 
 import "time"
 
+type ChatMessage struct {
+	Role    string `json:"role"`
+	Content string `json:"content"`
+}
+
 type QueryRequest struct {
-	Question string `json:"question" binding:"required"`
+	Question string        `json:"question" binding:"required"`
+	History  []ChatMessage `json:"history"`
 }
 
 type QueryResponse struct {
@@ -16,6 +22,8 @@ type QueryResponse struct {
 	Answer        string      `json:"answer"`
 	ExecutionTime int64       `json:"execution_time_ms"`
 	RowsReturned  int         `json:"rows_returned"`
+	NeedsClarify  bool        `json:"needs_clarify"`
+	ClarifyText   string      `json:"clarify_text"`
 }
 
 type QueryRecord struct {
