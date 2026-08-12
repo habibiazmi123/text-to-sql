@@ -41,11 +41,28 @@ class SummarizeResponse(BaseModel):
     answer: str
 
 
+class RetrieveRequest(BaseModel):
+    question: str
+    top_k: int = 10
+
+
+class RetrieveResponse(BaseModel):
+    schema_context: str
+    tables_found: list[str]
+
+
 @router.post("/generate", response_model=GenerateResponse)
 async def generate(req: GenerateRequest):
-    schema = get_schema_context()
-    result = generate_sql(req.question, schema)
+    try:
+        from app.embeddings.retriever import retrieve_relevant_schema
+        schema = retrieve_relevant_schema(req.question)
+    except Exception:
+        schema = get_schema_context()
 
+    if not schema.strip():
+        schema = get_schema_context()
+
+    result = generate_sql(req.question, schema)
     validation = validator.validate(result.get("sql", ""))
 
     return GenerateResponse(
@@ -81,6 +98,24 @@ async def summarize(req: SummarizeRequest):
     return SummarizeResponse(answer=answer)
 
 
+@router.post("/retrieve", response_model=RetrieveResponse)
+async def retrieve(req: RetrieveRequest):
+    from app.embeddings.retriever import retrieve_relevant_schema
+    import psycopg2
+    from app.config import settings
+
+    schema = retrieve_relevant_schema(req.question, req.top_k)
+
+    tables_found = []
+    for line in schema.split("\n"):
+        if line.startswith("TABLE: "):
+            tables_found.append(line[7:])
+
+    return RetrieveResponse(schema_context=schema, tables_found=tables_found)
+
+
 @router.post("/index")
 async def index():
-    return {"status": "indexing not implemented in Phase 1"}
+    from app.embeddings.indexer import index_schema
+    result = index_schema()
+    return {"status": "ok", **result}

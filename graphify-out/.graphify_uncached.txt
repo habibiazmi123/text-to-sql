@@ -1,0 +1,2 @@
+/Users/azmi/Documents/Learning/AI/text-to-sql/ai-service/requirements.txt
+/Users/azmi/Documents/Learning/AI/text-to-sql/docker-compose.yml
