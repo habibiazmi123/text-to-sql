@@ -1,3 +1,4 @@
+import json
 import time
 
 from fastapi import APIRouter
@@ -232,9 +233,14 @@ async def validate(req: ValidateRequest):
     )
 
 
+MAX_SUMMARIZE_CHARS = 6000  # ponytail: cap result size, full result far exceeds context window
+
+
 @router.post("/summarize", response_model=SummarizeResponse)
 async def summarize(req: SummarizeRequest):
-    result_str = str(req.result)
+    result_str = json.dumps(req.result, ensure_ascii=False)
+    if len(result_str) > MAX_SUMMARIZE_CHARS:
+        result_str = result_str[:MAX_SUMMARIZE_CHARS] + f"\n... (truncated, {len(req.result)} rows total)"
     messages = [
         {"role": "system", "content": "You are a helpful assistant. Summarize SQL query results in natural language. Use Indonesian language. Be concise."},
         {"role": "user", "content": f"Question: {req.question}\nSQL: {req.sql}\nResult: {result_str}\n\nProvide a concise natural language answer."},

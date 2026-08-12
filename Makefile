@@ -35,7 +35,10 @@ migrate:
 	docker compose exec postgres psql -U app_user -d text_to_sql -f /docker-entrypoint-initdb.d/005_create_schema_embeddings.sql
 
 seed:
-	docker compose exec postgres psql -U app_user -d text_to_sql -f /docker-entrypoint-initdb.d/seeds/seed.sql
+	cat backend/seeds/seed.sql | docker compose exec -T postgres psql -U app_user -d text_to_sql
+
+seed-bulk:
+	cat backend/seeds/seed_bulk.sql | docker compose exec -T postgres psql -U app_user -d text_to_sql
 
 rag-index:
 	curl -X POST http://localhost:8000/ai/index
