@@ -1,5 +1,7 @@
 import sqlparse
+import psycopg2
 from dataclasses import dataclass
+from app.config import settings
 
 BLOCKED_KEYWORDS = {"INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "TRUNCATE", "CREATE", "GRANT", "REVOKE"}
 BLOCKED_TABLES = {"pg_catalog", "information_schema", "pg_tables", "pg_stat", "pg_class", "pg_roles"}
@@ -41,5 +43,22 @@ class SQLValidator:
         for table in BLOCKED_TABLES:
             if table in sql_lower or table in sql_upper:
                 return ValidationResult(is_valid=False, error=f"Access to '{table}' not allowed")
+
+        return ValidationResult(is_valid=True, sql=sql)
+
+    def validate_with_explain(self, sql: str) -> ValidationResult:
+        """Basic validation + EXPLAIN dry-run to catch runtime errors."""
+        basic = self.validate(sql)
+        if not basic.is_valid:
+            return basic
+
+        try:
+            conn = psycopg2.connect(settings.database_url)
+            cur = conn.cursor()
+            cur.execute(f"EXPLAIN {sql}")
+            cur.close()
+            conn.close()
+        except psycopg2.Error as e:
+            return ValidationResult(is_valid=False, error=f"EXPLAIN failed: {e.pgerror or str(e)}", sql=sql)
 
         return ValidationResult(is_valid=True, sql=sql)

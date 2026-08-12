@@ -30,7 +30,7 @@ func NewQueryService(db *gorm.DB, cfg *config.Config) *QueryService {
 
 func (s *QueryService) ExecuteQuery(req model.QueryRequest) (*model.QueryResponse, error) {
 	genReq, _ := json.Marshal(map[string]string{"question": req.Question})
-	resp, err := s.client.Post(s.cfg.AIServiceURL+"/ai/generate", "application/json", bytes.NewReader(genReq))
+	resp, err := s.client.Post(s.cfg.AIServiceURL+"/ai/generate-with-retry", "application/json", bytes.NewReader(genReq))
 	if err != nil {
 		return nil, fmt.Errorf("failed to call AI service: %w", err)
 	}
@@ -44,6 +44,7 @@ func (s *QueryService) ExecuteQuery(req model.QueryRequest) (*model.QueryRespons
 		Confidence    float64  `json:"confidence"`
 		IsValid       bool     `json:"is_valid"`
 		ValidationErr string   `json:"validation_error"`
+		RetriesUsed   int      `json:"retries_used"`
 	}
 	json.Unmarshal(body, &genResult)
 
@@ -51,8 +52,8 @@ func (s *QueryService) ExecuteQuery(req model.QueryRequest) (*model.QueryRespons
 		return &model.QueryResponse{
 			Question:  req.Question,
 			SQL:       genResult.Sql,
-			Reasoning: fmt.Sprintf("Validation failed: %s", genResult.ValidationErr),
-		}, fmt.Errorf("SQL validation failed: %s", genResult.ValidationErr)
+			Reasoning: fmt.Sprintf("Validation failed after %d retries: %s", genResult.RetriesUsed, genResult.ValidationErr),
+		}, fmt.Errorf("SQL validation failed after %d retries: %s", genResult.RetriesUsed, genResult.ValidationErr)
 	}
 
 	start := time.Now()
