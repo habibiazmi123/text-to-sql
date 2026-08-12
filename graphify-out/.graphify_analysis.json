@@ -1,0 +1,612 @@
+{
+  "communities": {
+    "0": [
+      "frontend::app_api_query_route",
+      "frontend::app_api_query_route_post",
+      "frontend::app_page",
+      "frontend::app_page_page",
+      "frontend::components_chat_answer",
+      "frontend::components_chat_answer_answer",
+      "frontend::components_chat_answer_copysql",
+      "frontend::components_chat_answer_isrows",
+      "frontend::components_chat_chat",
+      "frontend::components_chat_chat_botavatar",
+      "frontend::components_chat_chat_chat",
+      "frontend::components_chat_chat_chatbubble",
+      "frontend::components_chat_chat_chatitem",
+      "frontend::components_chat_chat_emptystate",
+      "frontend::components_chat_chat_examples",
+      "frontend::components_chat_chat_pendingbubble",
+      "frontend::components_chat_chat_phases",
+      "frontend::components_chat_chat_shimmer",
+      "frontend::components_chat_chat_themetoggle",
+      "frontend::components_chat_chat_tohistory",
+      "frontend::components_ui_badge",
+      "frontend::components_ui_badge_badge",
+      "frontend::components_ui_badge_badgevariants",
+      "frontend::components_ui_collapsible",
+      "frontend::components_ui_collapsible_collapsible",
+      "frontend::components_ui_collapsible_collapsiblecontent",
+      "frontend::components_ui_collapsible_collapsibletrigger",
+      "frontend::lib_api",
+      "frontend::lib_api_chatmessage",
+      "frontend::lib_api_chatmessageschema",
+      "frontend::lib_api_client",
+      "frontend::lib_api_errormessage",
+      "frontend::lib_api_queryrequest",
+      "frontend::lib_api_queryrequestschema",
+      "frontend::lib_api_queryresponse",
+      "frontend::lib_api_queryresponseschema",
+      "frontend::lib_api_runquery"
+    ],
+    "1": [
+      "frontend::axios",
+      "frontend::class_variance_authority",
+      "frontend::clsx",
+      "frontend::lucide_react",
+      "frontend::next",
+      "frontend::next_themes",
+      "frontend::package_dependencies",
+      "frontend::package_dependencies_axios",
+      "frontend::package_dependencies_class_variance_authority",
+      "frontend::package_dependencies_clsx",
+      "frontend::package_dependencies_lucide_react",
+      "frontend::package_dependencies_next",
+      "frontend::package_dependencies_next_themes",
+      "frontend::package_dependencies_radix_ui",
+      "frontend::package_dependencies_react",
+      "frontend::package_dependencies_react_dom",
+      "frontend::package_dependencies_shadcn",
+      "frontend::package_dependencies_sonner",
+      "frontend::package_dependencies_tailwind_merge",
+      "frontend::package_dependencies_tanstack_react_query",
+      "frontend::package_dependencies_tw_animate_css",
+      "frontend::package_dependencies_zod",
+      "frontend::radix_ui",
+      "frontend::react",
+      "frontend::react_dom",
+      "frontend::shadcn",
+      "frontend::sonner",
+      "frontend::tailwind_merge",
+      "frontend::tanstack_react_query",
+      "frontend::tw_animate_css",
+      "frontend::zod"
+    ],
+    "2": [
+      "frontend::components_chat_chat_input",
+      "frontend::components_chat_chat_input_chatinput",
+      "frontend::components_chat_chat_input_chatinputprops",
+      "frontend::components_chat_result_table",
+      "frontend::components_chat_result_table_celltext",
+      "frontend::components_chat_result_table_resulttable",
+      "frontend::components_ui_button",
+      "frontend::components_ui_button_button",
+      "frontend::components_ui_button_buttonvariants",
+      "frontend::components_ui_card",
+      "frontend::components_ui_card_card",
+      "frontend::components_ui_card_cardaction",
+      "frontend::components_ui_card_cardcontent",
+      "frontend::components_ui_card_carddescription",
+      "frontend::components_ui_card_cardfooter",
+      "frontend::components_ui_card_cardheader",
+      "frontend::components_ui_card_cardtitle",
+      "frontend::components_ui_separator",
+      "frontend::components_ui_separator_separator",
+      "frontend::components_ui_table",
+      "frontend::components_ui_table_table",
+      "frontend::components_ui_table_tablebody",
+      "frontend::components_ui_table_tablecaption",
+      "frontend::components_ui_table_tablecell",
+      "frontend::components_ui_table_tablefooter",
+      "frontend::components_ui_table_tablehead",
+      "frontend::components_ui_table_tableheader",
+      "frontend::components_ui_table_tablerow",
+      "frontend::components_ui_textarea",
+      "frontend::components_ui_textarea_textarea",
+      "frontend::lib_utils",
+      "frontend::lib_utils_cn"
+    ],
+    "3": [
+      "frontend::components",
+      "frontend::components_aliases",
+      "frontend::components_aliases_components",
+      "frontend::components_aliases_hooks",
+      "frontend::components_aliases_lib",
+      "frontend::components_aliases_ui",
+      "frontend::components_aliases_utils",
+      "frontend::components_iconlibrary",
+      "frontend::components_menuaccent",
+      "frontend::components_menucolor",
+      "frontend::components_registries",
+      "frontend::components_rsc",
+      "frontend::components_rtl",
+      "frontend::components_schema",
+      "frontend::components_style",
+      "frontend::components_tailwind",
+      "frontend::components_tailwind_basecolor",
+      "frontend::components_tailwind_config",
+      "frontend::components_tailwind_css",
+      "frontend::components_tailwind_cssvariables",
+      "frontend::components_tailwind_prefix",
+      "frontend::components_tsx"
+    ],
+    "4": [
+      "frontend::eslint",
+      "frontend::eslint_config_next",
+      "frontend::package",
+      "frontend::package_devdependencies",
+      "frontend::package_devdependencies_eslint",
+      "frontend::package_devdependencies_eslint_config_next",
+      "frontend::package_devdependencies_prettier",
+      "frontend::package_devdependencies_prettier_plugin_tailwindcss",
+      "frontend::package_devdependencies_tailwindcss",
+      "frontend::package_devdependencies_tailwindcss_postcss",
+      "frontend::package_devdependencies_types_node",
+      "frontend::package_devdependencies_types_react",
+      "frontend::package_devdependencies_types_react_dom",
+      "frontend::package_devdependencies_typescript",
+      "frontend::package_name",
+      "frontend::package_private",
+      "frontend::package_scripts",
+      "frontend::package_scripts_build",
+      "frontend::package_scripts_dev",
+      "frontend::package_scripts_format",
+      "frontend::package_scripts_lint",
+      "frontend::package_scripts_start",
+      "frontend::package_scripts_typecheck",
+      "frontend::package_type",
+      "frontend::package_version",
+      "frontend::prettier",
+      "frontend::prettier_plugin_tailwindcss",
+      "frontend::tailwindcss",
+      "frontend::tailwindcss_postcss",
+      "frontend::types_node",
+      "frontend::types_react",
+      "frontend::types_react_dom",
+      "frontend::typescript"
+    ],
+    "5": [
+      "frontend::ref_dom",
+      "frontend::ref_dom_iterable",
+      "frontend::ref_esnext",
+      "frontend::ref_mts",
+      "frontend::ref_next_config_ts",
+      "frontend::ref_next_dev_types_ts",
+      "frontend::ref_next_env_d_ts",
+      "frontend::ref_next_types_ts",
+      "frontend::ref_node_modules",
+      "frontend::ref_ts",
+      "frontend::ref_tsx",
+      "frontend::tsconfig",
+      "frontend::tsconfig_compileroptions",
+      "frontend::tsconfig_compileroptions_allowjs",
+      "frontend::tsconfig_compileroptions_esmoduleinterop",
+      "frontend::tsconfig_compileroptions_incremental",
+      "frontend::tsconfig_compileroptions_isolatedmodules",
+      "frontend::tsconfig_compileroptions_jsx",
+      "frontend::tsconfig_compileroptions_lib",
+      "frontend::tsconfig_compileroptions_module",
+      "frontend::tsconfig_compileroptions_moduleresolution",
+      "frontend::tsconfig_compileroptions_noemit",
+      "frontend::tsconfig_compileroptions_paths",
+      "frontend::tsconfig_compileroptions_plugins",
+      "frontend::tsconfig_compileroptions_resolvejsonmodule",
+      "frontend::tsconfig_compileroptions_skiplibcheck",
+      "frontend::tsconfig_compileroptions_strict",
+      "frontend::tsconfig_compileroptions_target",
+      "frontend::tsconfig_exclude",
+      "frontend::tsconfig_include"
+    ],
+    "6": [
+      "frontend::app_layout",
+      "frontend::app_layout_fontmono",
+      "frontend::app_layout_geist",
+      "frontend::app_layout_rootlayout",
+      "frontend::app_providers",
+      "frontend::app_providers_providers",
+      "frontend::components_theme_provider",
+      "frontend::components_theme_provider_istypingtarget",
+      "frontend::components_theme_provider_themehotkey",
+      "frontend::components_theme_provider_themeprovider",
+      "frontend::components_ui_sonner",
+      "frontend::components_ui_sonner_toaster"
+    ],
+    "7": [
+      "repo::ai_service_app_llm_client",
+      "repo::ai_service_app_llm_client_chat_completion",
+      "repo::ai_service_app_llm_client_get_llm_client",
+      "repo::openai"
+    ],
+    "8": [
+      "repo::backend_tests_query_test",
+      "repo::backend_tests_query_test_testhealthendpoint",
+      "repo::backend_tests_query_test_testqueryendpointvalidation",
+      "repo::t"
+    ],
+    "9": [
+      "repo::opencode_opencode",
+      "repo::opencode_opencode_plugin",
+      "repo::opencode_opencode_schema",
+      "repo::ref_opencode_plugins_graphify_js"
+    ],
+    "10": [
+      "repo::ai_service_app_api_routes_index",
+      "repo::ai_service_app_config",
+      "repo::ai_service_app_config_config",
+      "repo::ai_service_app_config_settings",
+      "repo::ai_service_app_embeddings_indexer",
+      "repo::ai_service_app_embeddings_indexer_index_schema",
+      "repo::ai_service_app_embeddings_model",
+      "repo::ai_service_app_embeddings_model_embed_text",
+      "repo::ai_service_app_embeddings_model_embed_texts",
+      "repo::ai_service_app_embeddings_model_get_model",
+      "repo::ai_service_app_embeddings_retriever",
+      "repo::ai_service_app_embeddings_retriever_retrieve_relevant_schema",
+      "repo::ai_service_app_rag_examples_indexer",
+      "repo::ai_service_app_rag_examples_indexer_index_sql_examples",
+      "repo::ai_service_app_rag_examples_retriever",
+      "repo::ai_service_app_rag_examples_retriever_retrieve_similar_examples",
+      "repo::ai_service_app_rag_rules_indexer",
+      "repo::ai_service_app_rag_rules_indexer_index_business_rules",
+      "repo::ai_service_app_rag_rules_retriever",
+      "repo::ai_service_app_rag_rules_retriever_retrieve_relevant_rules",
+      "repo::ai_service_app_schema_introspector",
+      "repo::ai_service_app_schema_introspector_get_schema_entries",
+      "repo::ai_service_tests_test_embeddings",
+      "repo::ai_service_tests_test_embeddings_test_embed_text_returns_list",
+      "repo::ai_service_tests_test_embeddings_test_embed_texts_returns_list",
+      "repo::ai_service_tests_test_rules",
+      "repo::ai_service_tests_test_rules_test_index_business_rules",
+      "repo::ai_service_tests_test_rules_test_retrieve_relevant_rules_empty",
+      "repo::ai_service_tests_test_rules_test_retrieve_relevant_rules_returns_string",
+      "repo::basesettings",
+      "repo::sentencetransformer"
+    ],
+    "11": [
+      "repo::opencode_plugins_graphify",
+      "repo::opencode_plugins_graphify_graphifyplugin",
+      "repo::opencode_plugins_graphify_rationale_4"
+    ],
+    "12": [
+      "frontend::postcss_config",
+      "frontend::postcss_config_config"
+    ],
+    "13": [
+      "repo::ai_service_app_embeddings_init"
+    ],
+    "14": [
+      "repo::ai_service_app_init"
+    ],
+    "15": [
+      "repo::ai_service_app_llm_init"
+    ],
+    "16": [
+      "repo::ai_service_app_rag_init"
+    ],
+    "17": [
+      "repo::ai_service_app_schema_init"
+    ],
+    "18": [
+      "repo::ai_service_app_sql_init"
+    ],
+    "19": [
+      "repo::ai_service_requirements_httpx"
+    ],
+    "20": [
+      "repo::ai_service_requirements_pydantic_settings"
+    ],
+    "21": [
+      "repo::ai_service_requirements_uvicorn"
+    ],
+    "22": [
+      "repo::ai_service_tests_init"
+    ],
+    "23": [
+      "repo::backend_internal_service_query_go_db"
+    ],
+    "24": [
+      "repo::config"
+    ],
+    "25": [
+      "repo::docker-compose_yml"
+    ],
+    "26": [
+      "repo::pkg_text_to_sql_backend"
+    ],
+    "27": [
+      "repo::ai_service_app_api_routes",
+      "repo::ai_service_app_api_routes_generate",
+      "repo::ai_service_app_api_routes_generate_with_retry",
+      "repo::ai_service_app_api_routes_generaterequest",
+      "repo::ai_service_app_api_routes_generateresponse",
+      "repo::ai_service_app_api_routes_rationale_112",
+      "repo::ai_service_app_api_routes_retrieve",
+      "repo::ai_service_app_api_routes_retrieverequest",
+      "repo::ai_service_app_api_routes_retrieveresponse",
+      "repo::ai_service_app_api_routes_retryrequest",
+      "repo::ai_service_app_api_routes_retryresponse",
+      "repo::ai_service_app_api_routes_summarize",
+      "repo::ai_service_app_api_routes_summarizerequest",
+      "repo::ai_service_app_api_routes_summarizeresponse",
+      "repo::ai_service_app_api_routes_validate",
+      "repo::ai_service_app_api_routes_validaterequest",
+      "repo::ai_service_app_api_routes_validateresponse",
+      "repo::ai_service_app_main",
+      "repo::ai_service_app_main_health",
+      "repo::ai_service_app_schema_introspector_get_schema_context",
+      "repo::ai_service_app_sql_validator",
+      "repo::ai_service_app_sql_validator_rationale_50",
+      "repo::ai_service_app_sql_validator_sqlvalidator",
+      "repo::ai_service_app_sql_validator_sqlvalidator_validate",
+      "repo::ai_service_app_sql_validator_sqlvalidator_validate_with_explain",
+      "repo::ai_service_app_sql_validator_validationresult",
+      "repo::ai_service_tests_test_validator",
+      "repo::ai_service_tests_test_validator_test_allows_select",
+      "repo::ai_service_tests_test_validator_test_allows_with",
+      "repo::ai_service_tests_test_validator_test_rejects_delete",
+      "repo::ai_service_tests_test_validator_test_rejects_drop",
+      "repo::ai_service_tests_test_validator_test_rejects_insert",
+      "repo::ai_service_tests_test_validator_test_rejects_multiple_statements",
+      "repo::ai_service_tests_test_validator_test_rejects_system_tables",
+      "repo::ai_service_tests_test_validator_test_rejects_update",
+      "repo::basemodel",
+      "repo::get",
+      "repo::post"
+    ],
+    "28": [
+      "repo::backend_cmd_api_main",
+      "repo::backend_cmd_api_main_main",
+      "repo::backend_internal_config_config",
+      "repo::backend_internal_config_config_getenv",
+      "repo::backend_internal_config_config_load",
+      "repo::backend_internal_handler_health",
+      "repo::backend_internal_handler_health_go_context",
+      "repo::backend_internal_handler_health_go_db",
+      "repo::backend_internal_handler_health_newhealthhandler",
+      "repo::backend_internal_handler_query",
+      "repo::backend_internal_handler_query_go_context",
+      "repo::backend_internal_handler_query_newqueryhandler",
+      "repo::backend_internal_service_query",
+      "repo::backend_internal_service_query_newqueryservice",
+      "repo::client",
+      "repo::config_config",
+      "repo::db",
+      "repo::handler_healthhandler",
+      "repo::handler_healthhandler_check",
+      "repo::handler_queryhandler",
+      "repo::handler_queryhandler_query",
+      "repo::service_queryservice"
+    ],
+    "29": [
+      "repo::ai_service_requirements_fastapi",
+      "repo::ai_service_requirements_openai",
+      "repo::ai_service_requirements_psycopg2binary",
+      "repo::ai_service_requirements_sentence_transformers",
+      "repo::ai_service_requirements_sqlparse",
+      "repo::ai_service_requirements_torch",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_api_integration",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_business_knowledge_rag",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_business_rules_indexer",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_business_rules_retriever",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_business_rules_table",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_hybrid_retrieval_strategy",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_pgvector",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_schema_rag",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_seed_business_rules",
+      "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_sql_generator_prompt_integration"
+    ],
+    "30": [
+      "repo::ai_service_app_sql_generator",
+      "repo::ai_service_app_sql_generator_build_sql_prompt",
+      "repo::ai_service_app_sql_generator_generate_sql",
+      "repo::ai_service_app_sql_generator_parse_llm_sql_response",
+      "repo::ai_service_tests_test_generator",
+      "repo::ai_service_tests_test_generator_test_build_sql_prompt",
+      "repo::ai_service_tests_test_generator_test_parse_llm_sql_response",
+      "repo::ai_service_tests_test_generator_test_parse_llm_sql_response_fallback"
+    ],
+    "31": [
+      "repo::backend_internal_model_query",
+      "repo::model_chatmessage",
+      "repo::model_queryrecord",
+      "repo::model_queryrequest",
+      "repo::model_queryresponse",
+      "repo::service_queryservice_executequery",
+      "repo::time"
+    ],
+    "32": [
+      "frontend::eslint_config",
+      "frontend::eslint_config_eslintconfig"
+    ],
+    "33": [
+      "frontend::next_config",
+      "frontend::next_config_nextconfig"
+    ],
+    "34": [
+      "repo::ai_service_app_api_init"
+    ]
+  },
+  "cohesion": {
+    "0": 0.08258258258258258,
+    "1": 0.06451612903225806,
+    "2": 0.1310483870967742,
+    "3": 0.09090909090909091,
+    "4": 0.06060606060606061,
+    "5": 0.06666666666666667,
+    "6": 0.22727272727272727,
+    "7": 0.8333333333333334,
+    "8": 0.6666666666666666,
+    "9": 0.5,
+    "10": 0.13333333333333333,
+    "11": 0.6666666666666666,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 0.12091038406827881,
+    "28": 0.1341991341991342,
+    "29": 0.21666666666666667,
+    "30": 0.5,
+    "31": 0.38095238095238093,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0
+  },
+  "gods": [
+    {
+      "id": "frontend::lib_utils_cn",
+      "label": "cn()",
+      "degree": 31
+    },
+    {
+      "id": "repo::ai_service_app_sql_validator_sqlvalidator",
+      "label": "SQLValidator",
+      "degree": 23
+    },
+    {
+      "id": "frontend::tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "repo::ai_service_app_embeddings_model_embed_text",
+      "label": "embed_text()",
+      "degree": 12
+    },
+    {
+      "id": "repo::ai_service_app_api_routes_generate_with_retry",
+      "label": "generate_with_retry()",
+      "degree": 11
+    },
+    {
+      "id": "repo::docs_superpowers_specs_2026_08_12_phase3_business_rules_rag_design_business_rules_retriever",
+      "label": "Business Rules Retriever (retrieve_relevant_rules)",
+      "degree": 10
+    },
+    {
+      "id": "repo::ai_service_app_api_routes_generate",
+      "label": "generate()",
+      "degree": 9
+    },
+    {
+      "id": "repo::ai_service_app_rag_rules_retriever_retrieve_relevant_rules",
+      "label": "retrieve_relevant_rules()",
+      "degree": 9
+    },
+    {
+      "id": "repo::ai_service_app_embeddings_model_embed_texts",
+      "label": "embed_texts()",
+      "degree": 8
+    },
+    {
+      "id": "frontend::tsconfig_include",
+      "label": "include",
+      "degree": 8
+    }
+  ],
+  "surprises": [
+    {
+      "source": "RootLayout()",
+      "target": "cn()",
+      "source_files": [
+        "app/layout.tsx",
+        "lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `RootLayout()` unexpectedly reaches hub `cn()`"
+    },
+    {
+      "source": "BotAvatar()",
+      "target": "cn()",
+      "source_files": [
+        "components/chat/chat.tsx",
+        "lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `BotAvatar()` unexpectedly reaches hub `cn()`"
+    },
+    {
+      "source": "Shimmer()",
+      "target": "cn()",
+      "source_files": [
+        "components/chat/chat.tsx",
+        "lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `Shimmer()` unexpectedly reaches hub `cn()`"
+    },
+    {
+      "source": "API Integration (/ai/retrieve, /ai/index)",
+      "target": "FastAPI (>=0.111.0)",
+      "source_files": [
+        "docs/superpowers/specs/2026-08-12-phase3-business-rules-rag-design.md",
+        "ai-service/requirements.txt"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "SQL Generator Prompt Integration (generate_sql)",
+      "target": "SQLParse (>=0.5.0)",
+      "source_files": [
+        "docs/superpowers/specs/2026-08-12-phase3-business-rules-rag-design.md",
+        "ai-service/requirements.txt"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `cn()` connect `UI Components` to `Chat UI`, `App Layout & Theme`?",
+      "why": "High betweenness centrality (0.025) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `npm Dependencies` to `Scripts & DevDeps`?",
+      "why": "High betweenness centrality (0.023) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 10 inferred relationships involving `SQLValidator` (e.g. with `GenerateRequest` and `GenerateResponse`) actually correct?",
+      "why": "`SQLValidator` has 10 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `$schema`, `.opencode/plugins/graphify.js`, `text-to-sql-backend` to the rest of the system?",
+      "why": "105 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Chat UI` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08258258258258258 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `npm Dependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `UI Components` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1310483870967742 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
