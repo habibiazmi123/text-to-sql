@@ -53,7 +53,13 @@ INSERT INTO business_rules (term, definition, example_sql) VALUES
     ('Revenue', 'Total amount of orders with status = completed and payment status = paid', 'SELECT SUM(o.total_amount) FROM orders o JOIN payments p ON o.id = p.order_id WHERE o.status = ''completed'' AND p.status = ''paid'''),
     ('Active User', 'A customer who has placed at least one order in the last 30 days', 'SELECT DISTINCT customer_id FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL ''30 days'''),
     ('Monthly Revenue', 'Revenue aggregated by month based on order_date', 'SELECT DATE_TRUNC(''month'', order_date), SUM(total_amount) FROM orders WHERE status = ''completed'' GROUP BY 1'),
-    ('Enterprise Customer', 'A customer with segment = enterprise', 'SELECT * FROM customers WHERE segment = ''enterprise''');
+    ('Enterprise Customer', 'A customer with segment = enterprise', 'SELECT * FROM customers WHERE segment = ''enterprise'''),
+    ('Gross Profit', 'Total revenue minus cost of goods sold', 'SELECT SUM(total_amount) - SUM(cost) FROM orders WHERE status = ''completed'''),
+    ('Net Profit', 'Gross profit minus operating expenses', 'SELECT SUM(total_amount) - SUM(cost) - SUM(operating_expense) FROM orders WHERE status = ''completed'''),
+    ('Customer Lifetime Value', 'Total revenue from a customer over their entire relationship', 'SELECT c.name, SUM(o.total_amount) AS clv FROM customers c JOIN orders o ON c.id = o.customer_id WHERE o.status = ''completed'' GROUP BY c.id, c.name'),
+    ('Churn Rate', 'Percentage of customers who have not placed an order in the last 90 days', 'SELECT COUNT(CASE WHEN last_order < CURRENT_DATE - INTERVAL ''90 days'' THEN 1 END)::FLOAT / COUNT(*) AS churn_rate FROM customers'),
+    ('Average Order Value', 'Total revenue divided by number of completed orders', 'SELECT SUM(total_amount) / COUNT(*) AS aov FROM orders WHERE status = ''completed'''),
+    ('Customer Segmentation', 'Grouping customers by purchase behavior: enterprise (segment=enterprise), smb (segment=smb), standard (segment=standard)', 'SELECT segment, COUNT(*), SUM(total_amount) FROM customers c JOIN orders o ON c.id = o.customer_id GROUP BY segment');
 
 INSERT INTO sql_examples (question, sql, description, difficulty) VALUES
     ('Berapa total revenue bulan lalu?', 'SELECT SUM(o.total_amount) AS total_revenue FROM orders o JOIN payments p ON o.id = p.order_id WHERE o.status = ''completed'' AND p.status = ''paid'' AND o.order_date >= DATE_TRUNC(''month'', CURRENT_DATE - INTERVAL ''1 month'') AND o.order_date < DATE_TRUNC(''month'', CURRENT_DATE)', 'Calculate total revenue for last month', 'easy'),

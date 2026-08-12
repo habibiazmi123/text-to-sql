@@ -1,56 +1,7 @@
 {
   "directed": false,
   "multigraph": false,
-  "graph": {
-    "hyperedges": [
-      {
-        "id": "rag_retrieval_pipeline",
-        "label": "RAG Retrieval Pipeline",
-        "nodes": [
-          "prd_schema_rag",
-          "prd_business_knowledge_rag",
-          "prd_sql_example_rag",
-          "prd_rag_retrieval_strategy",
-          "prd_hybrid_retrieval"
-        ],
-        "relation": "participate_in",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "PRD.md"
-      },
-      {
-        "id": "text_to_sql_pipeline",
-        "label": "Text-to-SQL Pipeline (Natural Language \u2192 SQL \u2192 Answer)",
-        "nodes": [
-          "prd_text_to_sql",
-          "prd_schema_introspection",
-          "prd_sql_generation",
-          "prd_sql_validation_pipeline",
-          "prd_query_execution",
-          "prd_result_processing"
-        ],
-        "relation": "participate_in",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "PRD.md"
-      },
-      {
-        "id": "tech_stack_core",
-        "label": "Core Technology Stack (Go + Python + PostgreSQL)",
-        "nodes": [
-          "prd_postgresql",
-          "prd_gorm",
-          "docker_compose_postgres",
-          "docker_compose_go_api",
-          "docker_compose_ai_service"
-        ],
-        "relation": "form",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "docker-compose.yml"
-      }
-    ]
-  },
+  "graph": {},
   "nodes": [
     {
       "label": "opencode.json",
@@ -103,7 +54,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "opencode_plugins_graphify",
-      "community": 10,
+      "community": 11,
       "community_name": "Graphify Plugin",
       "norm_label": "graphify.js"
     },
@@ -115,7 +66,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "opencode_plugins_graphify_graphifyplugin",
-      "community": 10,
+      "community": 11,
       "community_name": "Graphify Plugin",
       "norm_label": "graphifyplugin()"
     },
@@ -126,7 +77,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "opencode_plugins_graphify_rationale_4",
-      "community": 10,
+      "community": 11,
       "community_name": "Graphify Plugin",
       "norm_label": "important: keep the reminder string free of backticks and $(...) constructs."
     },
@@ -137,8 +88,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_init",
-      "community": 12,
-      "community_name": "Init Modules",
+      "community": 15,
+      "community_name": "App Init",
       "norm_label": "app/__init__.py"
     },
     {
@@ -148,8 +99,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_api_init",
-      "community": 11,
-      "community_name": "Init Modules",
+      "community": 13,
+      "community_name": "API Init",
       "norm_label": "api/__init__.py"
     },
     {
@@ -160,7 +111,7 @@
       "_origin": "ast",
       "id": "ai_service_app_api_routes",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "routes.py"
     },
     {
@@ -173,7 +124,7 @@
       "_origin": "ast",
       "id": "ai_service_app_api_routes_generaterequest",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "generaterequest"
     },
     {
@@ -184,7 +135,7 @@
       "_origin": "ast",
       "id": "basemodel",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "basemodel"
     },
     {
@@ -197,7 +148,7 @@
       "_origin": "ast",
       "id": "ai_service_app_api_routes_generateresponse",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "generateresponse"
     },
     {
@@ -210,7 +161,7 @@
       "_origin": "ast",
       "id": "ai_service_app_api_routes_validaterequest",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "validaterequest"
     },
     {
@@ -223,7 +174,7 @@
       "_origin": "ast",
       "id": "ai_service_app_api_routes_validateresponse",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "validateresponse"
     },
     {
@@ -236,7 +187,7 @@
       "_origin": "ast",
       "id": "ai_service_app_api_routes_summarizerequest",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "summarizerequest"
     },
     {
@@ -249,8 +200,34 @@
       "_origin": "ast",
       "id": "ai_service_app_api_routes_summarizeresponse",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "summarizeresponse"
+    },
+    {
+      "label": "RetrieveRequest",
+      "file_type": "code",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L44",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "ai_service_app_api_routes_retrieverequest",
+      "community": 1,
+      "community_name": "API Routes",
+      "norm_label": "retrieverequest"
+    },
+    {
+      "label": "RetrieveResponse",
+      "file_type": "code",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L49",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "ai_service_app_api_routes_retrieveresponse",
+      "community": 1,
+      "community_name": "API Routes",
+      "norm_label": "retrieveresponse"
     },
     {
       "label": "post",
@@ -260,55 +237,67 @@
       "_origin": "ast",
       "id": "post",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "post"
     },
     {
       "label": "generate()",
       "file_type": "code",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L45",
+      "source_location": "L55",
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_api_routes_generate",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "generate()"
     },
     {
       "label": "validate()",
       "file_type": "code",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L62",
+      "source_location": "L79",
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_api_routes_validate",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "validate()"
     },
     {
       "label": "summarize()",
       "file_type": "code",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L72",
+      "source_location": "L89",
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_api_routes_summarize",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "summarize()"
+    },
+    {
+      "label": "retrieve()",
+      "file_type": "code",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L102",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_app_api_routes_retrieve",
+      "community": 1,
+      "community_name": "API Routes",
+      "norm_label": "retrieve()"
     },
     {
       "label": "index()",
       "file_type": "code",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L85",
+      "source_location": "L118",
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_api_routes_index",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "index()"
     },
     {
@@ -318,8 +307,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_config",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
       "norm_label": "config.py"
     },
     {
@@ -331,8 +320,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "ai_service_app_config_settings",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
       "norm_label": "settings"
     },
     {
@@ -342,8 +331,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "basesettings",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
       "norm_label": "basesettings"
     },
     {
@@ -355,9 +344,124 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "ai_service_app_config_config",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
       "norm_label": "config"
+    },
+    {
+      "label": "embeddings/__init__.py",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_init",
+      "community": 14,
+      "community_name": "Embeddings Init",
+      "norm_label": "embeddings/__init__.py"
+    },
+    {
+      "label": "indexer.py",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_indexer",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "indexer.py"
+    },
+    {
+      "label": "index_schema()",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_indexer_index_schema",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "index_schema()"
+    },
+    {
+      "label": "model.py",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_model",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "model.py"
+    },
+    {
+      "label": "get_model()",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_model_get_model",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "get_model()"
+    },
+    {
+      "label": "SentenceTransformer",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "sentencetransformer",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "sentencetransformer"
+    },
+    {
+      "label": "embed_text()",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_model_embed_text",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "embed_text()"
+    },
+    {
+      "label": "embed_texts()",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L21",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_model_embed_texts",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "embed_texts()"
+    },
+    {
+      "label": "retriever.py",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/retriever.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_retriever",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "retriever.py"
+    },
+    {
+      "label": "retrieve_relevant_schema()",
+      "file_type": "code",
+      "source_file": "ai-service/app/embeddings/retriever.py",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_app_embeddings_retriever_retrieve_relevant_schema",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "retrieve_relevant_schema()"
     },
     {
       "label": "llm/__init__.py",
@@ -366,8 +470,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_llm_init",
-      "community": 13,
-      "community_name": "Init Modules",
+      "community": 16,
+      "community_name": "LLM Init",
       "norm_label": "llm/__init__.py"
     },
     {
@@ -377,8 +481,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_llm_client",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "client.py"
     },
     {
@@ -389,8 +493,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_llm_client_get_llm_client",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "get_llm_client()"
     },
     {
@@ -400,8 +504,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "openai",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "openai"
     },
     {
@@ -412,8 +516,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_llm_client_chat_completion",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "chat_completion()"
     },
     {
@@ -423,8 +527,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_main",
-      "community": 1,
-      "community_name": "AI Service API Layer",
+      "community": 10,
+      "community_name": "FastAPI App",
       "norm_label": "main.py"
     },
     {
@@ -434,8 +538,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "get",
-      "community": 1,
-      "community_name": "AI Service API Layer",
+      "community": 10,
+      "community_name": "FastAPI App",
       "norm_label": "get"
     },
     {
@@ -446,8 +550,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_main_health",
-      "community": 1,
-      "community_name": "AI Service API Layer",
+      "community": 10,
+      "community_name": "FastAPI App",
       "norm_label": "health()"
     },
     {
@@ -457,8 +561,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_schema_init",
-      "community": 14,
-      "community_name": "Init Modules",
+      "community": 17,
+      "community_name": "Schema Init",
       "norm_label": "schema/__init__.py"
     },
     {
@@ -468,8 +572,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_schema_introspector",
-      "community": 1,
-      "community_name": "AI Service API Layer",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
       "norm_label": "introspector.py"
     },
     {
@@ -481,8 +585,20 @@
       "_origin": "ast",
       "id": "ai_service_app_schema_introspector_get_schema_context",
       "community": 1,
-      "community_name": "AI Service API Layer",
+      "community_name": "API Routes",
       "norm_label": "get_schema_context()"
+    },
+    {
+      "label": "get_schema_entries()",
+      "file_type": "code",
+      "source_file": "ai-service/app/schema/introspector.py",
+      "source_location": "L49",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_app_schema_introspector_get_schema_entries",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "get_schema_entries()"
     },
     {
       "label": "sql/__init__.py",
@@ -491,8 +607,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_sql_init",
-      "community": 15,
-      "community_name": "Init Modules",
+      "community": 18,
+      "community_name": "SQL Init",
       "norm_label": "sql/__init__.py"
     },
     {
@@ -502,8 +618,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_sql_generator",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "generator.py"
     },
     {
@@ -514,8 +630,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_sql_generator_build_sql_prompt",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "build_sql_prompt()"
     },
     {
@@ -526,8 +642,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_sql_generator_parse_llm_sql_response",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "parse_llm_sql_response()"
     },
     {
@@ -538,8 +654,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_sql_generator_generate_sql",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "generate_sql()"
     },
     {
@@ -549,8 +665,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_app_sql_validator",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "validator.py"
     },
     {
@@ -562,8 +678,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "ai_service_app_sql_validator_validationresult",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "validationresult"
     },
     {
@@ -575,8 +691,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "ai_service_app_sql_validator_sqlvalidator",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "sqlvalidator"
     },
     {
@@ -587,8 +703,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_app_sql_validator_sqlvalidator_validate",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": ".validate()"
     },
     {
@@ -598,9 +714,44 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_tests_init",
-      "community": 17,
-      "community_name": "Init Modules",
+      "community": 19,
+      "community_name": "Tests Init",
       "norm_label": "tests/__init__.py"
+    },
+    {
+      "label": "test_embeddings.py",
+      "file_type": "code",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ai_service_tests_test_embeddings",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "test_embeddings.py"
+    },
+    {
+      "label": "test_embed_text_returns_list()",
+      "file_type": "code",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_tests_test_embeddings_test_embed_text_returns_list",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "test_embed_text_returns_list()"
+    },
+    {
+      "label": "test_embed_texts_returns_list()",
+      "file_type": "code",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "ai_service_tests_test_embeddings_test_embed_texts_returns_list",
+      "community": 0,
+      "community_name": "Embeddings & Retrieval",
+      "norm_label": "test_embed_texts_returns_list()"
     },
     {
       "label": "test_generator.py",
@@ -609,8 +760,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_tests_test_generator",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "test_generator.py"
     },
     {
@@ -621,8 +772,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_generator_test_build_sql_prompt",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "test_build_sql_prompt()"
     },
     {
@@ -633,8 +784,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_generator_test_parse_llm_sql_response",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "test_parse_llm_sql_response()"
     },
     {
@@ -645,8 +796,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_generator_test_parse_llm_sql_response_fallback",
-      "community": 3,
-      "community_name": "AI Service Core Logic",
+      "community": 4,
+      "community_name": "LLM & SQL Generation",
       "norm_label": "test_parse_llm_sql_response_fallback()"
     },
     {
@@ -656,8 +807,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ai_service_tests_test_validator",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_validator.py"
     },
     {
@@ -668,8 +819,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_allows_select",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_allows_select()"
     },
     {
@@ -680,8 +831,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_allows_with",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_allows_with()"
     },
     {
@@ -692,8 +843,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_rejects_insert",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_rejects_insert()"
     },
     {
@@ -704,8 +855,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_rejects_update",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_rejects_update()"
     },
     {
@@ -716,8 +867,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_rejects_delete",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_rejects_delete()"
     },
     {
@@ -728,8 +879,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_rejects_drop",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_rejects_drop()"
     },
     {
@@ -740,8 +891,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_rejects_multiple_statements",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_rejects_multiple_statements()"
     },
     {
@@ -752,8 +903,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "ai_service_tests_test_validator_test_rejects_system_tables",
-      "community": 5,
-      "community_name": "SQL Validation & Tests",
+      "community": 2,
+      "community_name": "SQL Validation",
       "norm_label": "test_rejects_system_tables()"
     },
     {
@@ -763,8 +914,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_cmd_api_main",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "main.go"
     },
     {
@@ -774,8 +925,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_cmd_api_main_main",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "main()"
     },
     {
@@ -787,8 +938,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pkg_text_to_sql_backend",
-      "community": 18,
-      "community_name": "Go Package",
+      "community": 20,
+      "community_name": "Backend Package",
       "norm_label": "text-to-sql-backend"
     },
     {
@@ -798,8 +949,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_internal_config_config",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 7,
+      "community_name": "Config Management",
       "norm_label": "config.go"
     },
     {
@@ -809,8 +960,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "config_config",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 7,
+      "community_name": "Config Management",
       "norm_label": "config"
     },
     {
@@ -820,8 +971,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_internal_config_config_load",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 7,
+      "community_name": "Config Management",
       "norm_label": "load()"
     },
     {
@@ -831,8 +982,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "backend_internal_config_config_getenv",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 7,
+      "community_name": "Config Management",
       "norm_label": "getenv()"
     },
     {
@@ -842,8 +993,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_internal_handler_health",
-      "community": 6,
-      "community_name": "Go Health Handler",
+      "community": 5,
+      "community_name": "Health Check",
       "norm_label": "health.go"
     },
     {
@@ -853,8 +1004,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "handler_healthhandler",
-      "community": 6,
-      "community_name": "Go Health Handler",
+      "community": 5,
+      "community_name": "Health Check",
       "norm_label": "healthhandler"
     },
     {
@@ -864,8 +1015,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_internal_handler_health_go_db",
-      "community": 6,
-      "community_name": "Go Health Handler",
+      "community": 5,
+      "community_name": "Health Check",
       "norm_label": "db"
     },
     {
@@ -875,8 +1026,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_internal_handler_health_newhealthhandler",
-      "community": 6,
-      "community_name": "Go Health Handler",
+      "community": 5,
+      "community_name": "Health Check",
       "norm_label": "newhealthhandler()"
     },
     {
@@ -886,8 +1037,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "handler_healthhandler_check",
-      "community": 6,
-      "community_name": "Go Health Handler",
+      "community": 5,
+      "community_name": "Health Check",
       "norm_label": ".check()"
     },
     {
@@ -897,8 +1048,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_internal_handler_health_go_context",
-      "community": 6,
-      "community_name": "Go Health Handler",
+      "community": 5,
+      "community_name": "Health Check",
       "norm_label": "context"
     },
     {
@@ -908,8 +1059,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_internal_handler_query",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "handler/query.go"
     },
     {
@@ -919,8 +1070,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "handler_queryhandler",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "queryhandler"
     },
     {
@@ -930,8 +1081,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_internal_handler_query_newqueryhandler",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "newqueryhandler()"
     },
     {
@@ -941,8 +1092,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "handler_queryhandler_query",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": ".query()"
     },
     {
@@ -952,8 +1103,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_internal_handler_query_go_context",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "context"
     },
     {
@@ -963,8 +1114,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_internal_model_query",
-      "community": 7,
-      "community_name": "Go Query Models",
+      "community": 6,
+      "community_name": "Query Execution",
       "norm_label": "model/query.go"
     },
     {
@@ -974,8 +1125,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "model_queryrequest",
-      "community": 7,
-      "community_name": "Go Query Models",
+      "community": 6,
+      "community_name": "Query Execution",
       "norm_label": "queryrequest"
     },
     {
@@ -985,8 +1136,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "model_queryresponse",
-      "community": 7,
-      "community_name": "Go Query Models",
+      "community": 6,
+      "community_name": "Query Execution",
       "norm_label": "queryresponse"
     },
     {
@@ -996,8 +1147,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "model_queryrecord",
-      "community": 7,
-      "community_name": "Go Query Models",
+      "community": 6,
+      "community_name": "Query Execution",
       "norm_label": "queryrecord"
     },
     {
@@ -1007,8 +1158,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "time",
-      "community": 7,
-      "community_name": "Go Query Models",
+      "community": 6,
+      "community_name": "Query Execution",
       "norm_label": "time"
     },
     {
@@ -1018,8 +1169,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_internal_service_query",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "service/query.go"
     },
     {
@@ -1029,8 +1180,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "service_queryservice",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "queryservice"
     },
     {
@@ -1040,8 +1191,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_internal_service_query_go_db",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "db"
     },
     {
@@ -1051,8 +1202,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "config",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "config"
     },
     {
@@ -1062,8 +1213,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "client",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "client"
     },
     {
@@ -1073,8 +1224,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_internal_service_query_newqueryservice",
-      "community": 2,
-      "community_name": "Go API Backend",
+      "community": 3,
+      "community_name": "Go Backend",
       "norm_label": "newqueryservice()"
     },
     {
@@ -1084,8 +1235,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "service_queryservice_executequery",
-      "community": 7,
-      "community_name": "Go Query Models",
+      "community": 6,
+      "community_name": "Query Execution",
       "norm_label": ".executequery()"
     },
     {
@@ -1096,7 +1247,7 @@
       "_origin": "ast",
       "id": "backend_tests_query_test",
       "community": 8,
-      "community_name": "Go API Tests",
+      "community_name": "Backend Tests",
       "norm_label": "query_test.go"
     },
     {
@@ -1107,7 +1258,7 @@
       "_origin": "ast",
       "id": "backend_tests_query_test_testhealthendpoint",
       "community": 8,
-      "community_name": "Go API Tests",
+      "community_name": "Backend Tests",
       "norm_label": "testhealthendpoint()"
     },
     {
@@ -1118,7 +1269,7 @@
       "_origin": "ast",
       "id": "t",
       "community": 8,
-      "community_name": "Go API Tests",
+      "community_name": "Backend Tests",
       "norm_label": "t"
     },
     {
@@ -1129,526 +1280,36 @@
       "_origin": "ast",
       "id": "backend_tests_query_test_testqueryendpointvalidation",
       "community": 8,
-      "community_name": "Go API Tests",
+      "community_name": "Backend Tests",
       "norm_label": "testqueryendpointvalidation()"
     },
     {
-      "label": "Text-to-SQL + RAG System",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_text_to_sql",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "text-to-sql + rag system"
-    },
-    {
-      "label": "Schema Introspection",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_schema_introspection",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "schema introspection"
-    },
-    {
-      "label": "Schema RAG",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_schema_rag",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "schema rag"
-    },
-    {
-      "label": "Business Knowledge RAG",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_business_knowledge_rag",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "business knowledge rag"
-    },
-    {
-      "label": "SQL Example RAG",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_sql_example_rag",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "sql example rag"
-    },
-    {
-      "label": "Text-to-SQL Generation",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_sql_generation",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "text-to-sql generation"
-    },
-    {
-      "label": "SQL Security",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_sql_security",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "sql security"
-    },
-    {
-      "label": "SQL Validation Pipeline",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_sql_validation_pipeline",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "sql validation pipeline"
-    },
-    {
-      "label": "Query Execution",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_query_execution",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "query execution"
-    },
-    {
-      "label": "Result Processing",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_result_processing",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "result processing"
-    },
-    {
-      "label": "Clarification",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_clarification",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "clarification"
-    },
-    {
-      "label": "Conversation Context",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_conversation_context",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "conversation context"
-    },
-    {
-      "label": "RAG Retrieval Strategy",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_rag_retrieval_strategy",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "rag retrieval strategy"
-    },
-    {
-      "label": "Query Planning",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_query_planning",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "query planning"
-    },
-    {
-      "label": "Observability",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_observability",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "observability"
-    },
-    {
-      "label": "Evaluation",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_evaluation",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "evaluation"
-    },
-    {
-      "label": "PostgreSQL",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_postgresql",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "postgresql"
-    },
-    {
-      "label": "pgvector",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_pgvector",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "pgvector"
-    },
-    {
-      "label": "GORM",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_gorm",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "gorm"
-    },
-    {
-      "label": "Redis",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_redis",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "redis"
-    },
-    {
-      "label": "Next.js",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_nextjs",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "next.js"
-    },
-    {
-      "label": "TanStack Query",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_tanstack_query",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "tanstack query"
-    },
-    {
-      "label": "LangGraph",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_langgraph",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "langgraph"
-    },
-    {
-      "label": "Read-Only Database User",
-      "file_type": "concept",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_readonly_user",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "read-only database user"
-    },
-    {
-      "label": "Hybrid Retrieval",
-      "file_type": "rationale",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_hybrid_retrieval",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "hybrid retrieval"
-    },
-    {
-      "label": "Business Rules as First-Class RAG Documents",
-      "file_type": "rationale",
-      "source_file": "PRD.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "prd_business_rules_first_class",
-      "community": 0,
-      "community_name": "System Architecture & Requirements",
-      "norm_label": "business rules as first-class rag documents"
-    },
-    {
-      "label": "FastAPI",
-      "file_type": "code",
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "ai_service_requirements_fastapi",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "fastapi"
-    },
-    {
-      "label": "sqlparse",
-      "file_type": "code",
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "ai_service_requirements_sqlparse",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "sqlparse"
-    },
-    {
-      "label": "psycopg2-binary",
-      "file_type": "code",
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "ai_service_requirements_psycopg2",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "psycopg2-binary"
-    },
-    {
-      "label": "openai",
-      "file_type": "code",
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "ai_service_requirements_openai",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "openai"
-    },
-    {
-      "label": "pydantic-settings",
-      "file_type": "code",
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "ai_service_requirements_pydantic_settings",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "pydantic-settings"
-    },
-    {
-      "label": "httpx",
-      "file_type": "code",
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "ai_service_requirements_httpx",
-      "community": 16,
-      "community_name": "Test Dependencies",
-      "norm_label": "httpx"
-    },
-    {
-      "label": "postgres service",
-      "file_type": "code",
-      "source_file": "docker-compose.yml",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "docker_compose_postgres",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "postgres service"
-    },
-    {
-      "label": "go-api service",
-      "file_type": "code",
-      "source_file": "docker-compose.yml",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "docker_compose_go_api",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "go-api service"
-    },
-    {
-      "label": "ai-service service",
-      "file_type": "code",
-      "source_file": "docker-compose.yml",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "docker_compose_ai_service",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "ai-service service"
-    },
-    {
-      "label": "Text-to-SQL Phase 1 Implementation Plan",
+      "label": "AI Service Dependencies",
       "file_type": "document",
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
+      "source_file": "ai-service/requirements.txt",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "text-to-sql phase 1 implementation plan"
+      "id": "ai-service_requirementstxt",
+      "community": 12,
+      "community_name": "Docker & Dependencies",
+      "norm_label": "ai service dependencies"
     },
     {
-      "label": "Text-to-SQL + RAG System Design Spec",
+      "label": "Docker Compose Configuration",
       "file_type": "document",
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
+      "source_file": "docker-compose.yml",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "community": 4,
-      "community_name": "Infrastructure & Dependencies",
-      "norm_label": "text-to-sql + rag system design spec"
+      "id": "docker-compose_yml",
+      "community": 12,
+      "community_name": "Docker & Dependencies",
+      "norm_label": "docker compose configuration"
     }
   ],
   "links": [
@@ -1712,7 +1373,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L45",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes",
@@ -1745,7 +1406,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L85",
+      "source_location": "L118",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes",
@@ -1756,7 +1417,40 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L72",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes",
+      "target": "ai_service_app_api_routes_retrieve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes",
+      "target": "ai_service_app_api_routes_retrieverequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes",
+      "target": "ai_service_app_api_routes_retrieveresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L89",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes",
@@ -1789,7 +1483,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L62",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes",
@@ -1823,7 +1517,31 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L73",
+      "source_location": "L119",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes",
+      "target": "ai_service_app_embeddings_indexer_index_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes",
+      "target": "ai_service_app_embeddings_retriever_retrieve_relevant_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes",
@@ -1919,7 +1637,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L45",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_generate",
@@ -1956,6 +1674,28 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_generateresponse",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieverequest",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieveresponse",
       "target": "basemodel",
       "confidence_score": 1.0
     },
@@ -2008,7 +1748,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L51",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_generate",
@@ -2031,7 +1771,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L62",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_validate",
@@ -2054,7 +1794,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L64",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_validate",
@@ -2077,7 +1817,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L72",
+      "source_location": "L89",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_summarize",
@@ -2100,7 +1840,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L81",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_summarize",
@@ -2120,9 +1860,55 @@
     },
     {
       "relation": "references",
+      "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L44",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieve",
+      "target": "ai_service_app_api_routes_retrieverequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L5",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieverequest",
+      "target": "ai_service_app_sql_validator_sqlvalidator",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieve",
+      "target": "ai_service_app_api_routes_retrieveresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L5",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieveresponse",
+      "target": "ai_service_app_sql_validator_sqlvalidator",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L54",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -2134,7 +1920,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L84",
+      "source_location": "L117",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -2146,7 +1932,19 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L71",
+      "source_location": "L101",
+      "weight": 1.0,
+      "context": "decorator",
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieve",
+      "target": "post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L88",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -2158,7 +1956,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L61",
+      "source_location": "L78",
       "weight": 1.0,
       "context": "decorator",
       "_origin": "ast",
@@ -2172,7 +1970,19 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L46",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_generate",
+      "target": "ai_service_app_embeddings_retriever_retrieve_relevant_schema"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_generate",
@@ -2184,7 +1994,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L47",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_generate",
@@ -2196,11 +2006,35 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "ai-service/app/api/routes.py",
-      "source_location": "L80",
+      "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
       "source": "ai_service_app_api_routes_summarize",
       "target": "ai_service_app_llm_client_chat_completion"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_retrieve",
+      "target": "ai_service_app_embeddings_retriever_retrieve_relevant_schema"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ai-service/app/api/routes.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_api_routes_index",
+      "target": "ai_service_app_embeddings_indexer_index_schema"
     },
     {
       "relation": "contains",
@@ -2211,6 +2045,30 @@
       "_origin": "ast",
       "source": "ai_service_app_config",
       "target": "ai_service_app_config_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer",
+      "target": "ai_service_app_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/retriever.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_retriever",
+      "target": "ai_service_app_config",
       "confidence_score": 1.0
     },
     {
@@ -2257,6 +2115,265 @@
       "_origin": "ast",
       "source": "ai_service_app_config_settings",
       "target": "basesettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer",
+      "target": "ai_service_app_embeddings_indexer_index_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer",
+      "target": "ai_service_app_embeddings_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer",
+      "target": "ai_service_app_embeddings_model_embed_texts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer",
+      "target": "ai_service_app_schema_introspector",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer",
+      "target": "ai_service_app_schema_introspector_get_schema_entries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer_index_schema",
+      "target": "ai_service_app_embeddings_model_embed_texts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/indexer.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_indexer_index_schema",
+      "target": "ai_service_app_schema_introspector_get_schema_entries",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_model",
+      "target": "ai_service_app_embeddings_model_embed_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_model",
+      "target": "ai_service_app_embeddings_model_embed_texts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_model",
+      "target": "ai_service_app_embeddings_model_get_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/retriever.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_retriever",
+      "target": "ai_service_app_embeddings_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_tests_test_embeddings",
+      "target": "ai_service_app_embeddings_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_model_embed_text",
+      "target": "ai_service_app_embeddings_model_get_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_model_embed_texts",
+      "target": "ai_service_app_embeddings_model_get_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/model.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_model_get_model",
+      "target": "sentencetransformer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/retriever.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_retriever",
+      "target": "ai_service_app_embeddings_model_embed_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/retriever.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_retriever_retrieve_relevant_schema",
+      "target": "ai_service_app_embeddings_model_embed_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_tests_test_embeddings",
+      "target": "ai_service_app_embeddings_model_embed_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_tests_test_embeddings_test_embed_text_returns_list",
+      "target": "ai_service_app_embeddings_model_embed_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_tests_test_embeddings",
+      "target": "ai_service_app_embeddings_model_embed_texts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_tests_test_embeddings_test_embed_texts_returns_list",
+      "target": "ai_service_app_embeddings_model_embed_texts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/embeddings/retriever.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_embeddings_retriever",
+      "target": "ai_service_app_embeddings_retriever_retrieve_relevant_schema",
       "confidence_score": 1.0
     },
     {
@@ -2385,6 +2502,17 @@
       "_origin": "ast",
       "source": "ai_service_app_schema_introspector",
       "target": "ai_service_app_schema_introspector_get_schema_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/app/schema/introspector.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_app_schema_introspector",
+      "target": "ai_service_app_schema_introspector_get_schema_entries",
       "confidence_score": 1.0
     },
     {
@@ -2679,6 +2807,28 @@
       "_origin": "ast",
       "source": "ai_service_tests_test_validator_test_rejects_update",
       "target": "ai_service_app_sql_validator_sqlvalidator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_tests_test_embeddings",
+      "target": "ai_service_tests_test_embeddings_test_embed_text_returns_list",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ai-service/tests/test_embeddings.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "ai_service_tests_test_embeddings",
+      "target": "ai_service_tests_test_embeddings_test_embed_texts_returns_list",
       "confidence_score": 1.0
     },
     {
@@ -3316,680 +3466,13 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "target": "prd_text_to_sql"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_business_knowledge_rag"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_clarification"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_conversation_context"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_evaluation"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_gorm"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_langgraph"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_nextjs"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_observability"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_pgvector"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_postgresql"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_query_execution"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_query_planning"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_rag_retrieval_strategy"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_redis"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_result_processing"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_schema_introspection"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_schema_rag"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_sql_example_rag"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_sql_generation"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_sql_security"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_sql_validation_pipeline"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_text_to_sql",
-      "target": "prd_tanstack_query"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "prd_schema_introspection"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "target": "prd_schema_introspection"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_pgvector",
-      "target": "prd_schema_rag"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_rag_retrieval_strategy",
-      "target": "prd_schema_rag"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_schema_rag",
-      "target": "prd_business_knowledge_rag"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_schema_rag",
-      "target": "prd_sql_example_rag"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.65,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_business_knowledge_rag",
-      "target": "prd_sql_example_rag"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_business_rules_first_class",
-      "target": "prd_business_knowledge_rag"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_pgvector",
-      "target": "prd_business_knowledge_rag"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_rag_retrieval_strategy",
-      "target": "prd_business_knowledge_rag"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_pgvector",
-      "target": "prd_sql_example_rag"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_rag_retrieval_strategy",
-      "target": "prd_sql_example_rag"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "ai_service_requirements_openai",
-      "target": "prd_sql_generation"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "prd_sql_generation"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "prd_sql_security"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "target": "prd_sql_security"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_sql_security",
-      "target": "prd_readonly_user"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_sql_security",
-      "target": "prd_sql_validation_pipeline"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "ai_service_requirements_sqlparse",
-      "target": "prd_sql_validation_pipeline"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "prd_sql_validation_pipeline"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "prd_rag_retrieval_strategy",
-      "target": "prd_hybrid_retrieval"
-    },
-    {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "ai_service_requirements_psycopg2",
-      "target": "prd_postgresql"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "prd_postgresql"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "prd_readonly_user"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "target": "prd_readonly_user"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "ai-service/requirements.txt",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "ai_service_requirements_fastapi",
-      "target": "ai_service_requirements_pydantic_settings"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "ai_service_requirements_fastapi"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "ai_service_requirements_sqlparse"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "ai_service_requirements_psycopg2"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "ai_service_requirements_openai"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "docker-compose.yml",
       "source_location": null,
       "weight": 1.0,
-      "source": "docker_compose_postgres",
-      "target": "docker_compose_ai_service"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docker-compose.yml",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docker_compose_postgres",
-      "target": "docker_compose_go_api"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "docker_compose_postgres"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "target": "docker_compose_postgres"
-    },
-    {
-      "relation": "shares_data_with",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docker-compose.yml",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docker_compose_go_api",
-      "target": "docker_compose_ai_service"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "docker_compose_go_api"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "target": "docker_compose_go_api"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "docker_compose_ai_service"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/specs/2026-08-11-text-to-sql-design.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_specs_2026_08_11_text_to_sql_design",
-      "target": "docker_compose_ai_service"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docs/superpowers/plans/2026-08-11-text-to-sql-phase1.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "docs_superpowers_plans_2026_08_11_text_to_sql_phase1",
-      "target": "docs_superpowers_specs_2026_08_11_text_to_sql_design"
+      "source": "docker-compose_yml",
+      "target": "ai-service_requirementstxt"
     }
   ],
-  "hyperedges": [
-    {
-      "id": "rag_retrieval_pipeline",
-      "label": "RAG Retrieval Pipeline",
-      "nodes": [
-        "prd_schema_rag",
-        "prd_business_knowledge_rag",
-        "prd_sql_example_rag",
-        "prd_rag_retrieval_strategy",
-        "prd_hybrid_retrieval"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md"
-    },
-    {
-      "id": "text_to_sql_pipeline",
-      "label": "Text-to-SQL Pipeline (Natural Language \u2192 SQL \u2192 Answer)",
-      "nodes": [
-        "prd_text_to_sql",
-        "prd_schema_introspection",
-        "prd_sql_generation",
-        "prd_sql_validation_pipeline",
-        "prd_query_execution",
-        "prd_result_processing"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "PRD.md"
-    },
-    {
-      "id": "tech_stack_core",
-      "label": "Core Technology Stack (Go + Python + PostgreSQL)",
-      "nodes": [
-        "prd_postgresql",
-        "prd_gorm",
-        "docker_compose_postgres",
-        "docker_compose_go_api",
-        "docker_compose_ai_service"
-      ],
-      "relation": "form",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "docker-compose.yml"
-    }
-  ],
-  "built_at_commit": "df51ecd640692314066b6af23caca21eaef37627"
+  "hyperedges": [],
+  "built_at_commit": "559fa6152592a5cbbe51b24032e450dd7a011ac9"
 }

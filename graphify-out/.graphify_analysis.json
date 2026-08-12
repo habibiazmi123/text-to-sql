@@ -1,0 +1,318 @@
+{
+  "communities": {
+    "0": [
+      "ai_service_app_config",
+      "ai_service_app_config_config",
+      "ai_service_app_config_settings",
+      "ai_service_app_embeddings_indexer",
+      "ai_service_app_embeddings_indexer_index_schema",
+      "ai_service_app_embeddings_model",
+      "ai_service_app_embeddings_model_embed_text",
+      "ai_service_app_embeddings_model_embed_texts",
+      "ai_service_app_embeddings_model_get_model",
+      "ai_service_app_embeddings_retriever",
+      "ai_service_app_embeddings_retriever_retrieve_relevant_schema",
+      "ai_service_app_schema_introspector",
+      "ai_service_app_schema_introspector_get_schema_entries",
+      "ai_service_tests_test_embeddings",
+      "ai_service_tests_test_embeddings_test_embed_text_returns_list",
+      "ai_service_tests_test_embeddings_test_embed_texts_returns_list",
+      "basesettings",
+      "sentencetransformer"
+    ],
+    "1": [
+      "ai_service_app_api_routes",
+      "ai_service_app_api_routes_generate",
+      "ai_service_app_api_routes_generaterequest",
+      "ai_service_app_api_routes_generateresponse",
+      "ai_service_app_api_routes_index",
+      "ai_service_app_api_routes_retrieve",
+      "ai_service_app_api_routes_retrieverequest",
+      "ai_service_app_api_routes_retrieveresponse",
+      "ai_service_app_api_routes_summarize",
+      "ai_service_app_api_routes_summarizerequest",
+      "ai_service_app_api_routes_summarizeresponse",
+      "ai_service_app_api_routes_validate",
+      "ai_service_app_api_routes_validaterequest",
+      "ai_service_app_api_routes_validateresponse",
+      "ai_service_app_schema_introspector_get_schema_context",
+      "basemodel",
+      "post"
+    ],
+    "2": [
+      "ai_service_app_sql_validator",
+      "ai_service_app_sql_validator_sqlvalidator",
+      "ai_service_app_sql_validator_sqlvalidator_validate",
+      "ai_service_app_sql_validator_validationresult",
+      "ai_service_tests_test_validator",
+      "ai_service_tests_test_validator_test_allows_select",
+      "ai_service_tests_test_validator_test_allows_with",
+      "ai_service_tests_test_validator_test_rejects_delete",
+      "ai_service_tests_test_validator_test_rejects_drop",
+      "ai_service_tests_test_validator_test_rejects_insert",
+      "ai_service_tests_test_validator_test_rejects_multiple_statements",
+      "ai_service_tests_test_validator_test_rejects_system_tables",
+      "ai_service_tests_test_validator_test_rejects_update"
+    ],
+    "3": [
+      "backend_cmd_api_main",
+      "backend_cmd_api_main_main",
+      "backend_internal_handler_query",
+      "backend_internal_handler_query_go_context",
+      "backend_internal_handler_query_newqueryhandler",
+      "backend_internal_service_query",
+      "backend_internal_service_query_go_db",
+      "backend_internal_service_query_newqueryservice",
+      "client",
+      "config",
+      "handler_queryhandler",
+      "handler_queryhandler_query",
+      "service_queryservice"
+    ],
+    "4": [
+      "ai_service_app_llm_client",
+      "ai_service_app_llm_client_chat_completion",
+      "ai_service_app_llm_client_get_llm_client",
+      "ai_service_app_sql_generator",
+      "ai_service_app_sql_generator_build_sql_prompt",
+      "ai_service_app_sql_generator_generate_sql",
+      "ai_service_app_sql_generator_parse_llm_sql_response",
+      "ai_service_tests_test_generator",
+      "ai_service_tests_test_generator_test_build_sql_prompt",
+      "ai_service_tests_test_generator_test_parse_llm_sql_response",
+      "ai_service_tests_test_generator_test_parse_llm_sql_response_fallback",
+      "openai"
+    ],
+    "5": [
+      "backend_internal_handler_health",
+      "backend_internal_handler_health_go_context",
+      "backend_internal_handler_health_go_db",
+      "backend_internal_handler_health_newhealthhandler",
+      "handler_healthhandler",
+      "handler_healthhandler_check"
+    ],
+    "6": [
+      "backend_internal_model_query",
+      "model_queryrecord",
+      "model_queryrequest",
+      "model_queryresponse",
+      "service_queryservice_executequery",
+      "time"
+    ],
+    "7": [
+      "backend_internal_config_config",
+      "backend_internal_config_config_getenv",
+      "backend_internal_config_config_load",
+      "config_config"
+    ],
+    "8": [
+      "backend_tests_query_test",
+      "backend_tests_query_test_testhealthendpoint",
+      "backend_tests_query_test_testqueryendpointvalidation",
+      "t"
+    ],
+    "9": [
+      "opencode_opencode",
+      "opencode_opencode_plugin",
+      "opencode_opencode_schema",
+      "ref_opencode_plugins_graphify_js"
+    ],
+    "10": [
+      "ai_service_app_main",
+      "ai_service_app_main_health",
+      "get"
+    ],
+    "11": [
+      "opencode_plugins_graphify",
+      "opencode_plugins_graphify_graphifyplugin",
+      "opencode_plugins_graphify_rationale_4"
+    ],
+    "12": [
+      "ai-service_requirementstxt",
+      "docker-compose_yml"
+    ],
+    "13": [
+      "ai_service_app_api_init"
+    ],
+    "14": [
+      "ai_service_app_embeddings_init"
+    ],
+    "15": [
+      "ai_service_app_init"
+    ],
+    "16": [
+      "ai_service_app_llm_init"
+    ],
+    "17": [
+      "ai_service_app_schema_init"
+    ],
+    "18": [
+      "ai_service_app_sql_init"
+    ],
+    "19": [
+      "ai_service_tests_init"
+    ],
+    "20": [
+      "pkg_text_to_sql_backend"
+    ]
+  },
+  "cohesion": {
+    "0": 0.20261437908496732,
+    "1": 0.2647058823529412,
+    "2": 0.28205128205128205,
+    "3": 0.23076923076923078,
+    "4": 0.3333333333333333,
+    "5": 0.5333333333333333,
+    "6": 0.4,
+    "7": 0.8333333333333334,
+    "8": 0.6666666666666666,
+    "9": 0.5,
+    "10": 0.6666666666666666,
+    "11": 0.6666666666666666,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0
+  },
+  "gods": [
+    {
+      "id": "ai_service_app_sql_validator_sqlvalidator",
+      "label": "SQLValidator",
+      "degree": 20
+    },
+    {
+      "id": "service_queryservice",
+      "label": "QueryService",
+      "degree": 8
+    },
+    {
+      "id": "ai_service_app_api_routes_generate",
+      "label": "generate()",
+      "degree": 7
+    },
+    {
+      "id": "ai_service_app_embeddings_model_embed_text",
+      "label": "embed_text()",
+      "degree": 6
+    },
+    {
+      "id": "ai_service_app_embeddings_model_embed_texts",
+      "label": "embed_texts()",
+      "degree": 6
+    },
+    {
+      "id": "ai_service_app_llm_client_chat_completion",
+      "label": "chat_completion()",
+      "degree": 6
+    },
+    {
+      "id": "ai_service_app_sql_generator_generate_sql",
+      "label": "generate_sql()",
+      "degree": 6
+    },
+    {
+      "id": "ai_service_app_api_routes_summarize",
+      "label": "summarize()",
+      "degree": 5
+    },
+    {
+      "id": "ai_service_app_api_routes_retrieve",
+      "label": "retrieve()",
+      "degree": 5
+    },
+    {
+      "id": "ai_service_app_embeddings_indexer_index_schema",
+      "label": "index_schema()",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "GenerateRequest",
+      "target": "SQLValidator",
+      "source_files": [
+        "ai-service/app/api/routes.py",
+        "ai-service/app/sql/validator.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "GenerateResponse",
+      "target": "SQLValidator",
+      "source_files": [
+        "ai-service/app/api/routes.py",
+        "ai-service/app/sql/validator.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "ValidateRequest",
+      "target": "SQLValidator",
+      "source_files": [
+        "ai-service/app/api/routes.py",
+        "ai-service/app/sql/validator.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "ValidateResponse",
+      "target": "SQLValidator",
+      "source_files": [
+        "ai-service/app/api/routes.py",
+        "ai-service/app/sql/validator.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "SummarizeRequest",
+      "target": "SQLValidator",
+      "source_files": [
+        "ai-service/app/api/routes.py",
+        "ai-service/app/sql/validator.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "uses",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `SQLValidator` connect `Community 2` to `Community 1`?",
+      "why": "High betweenness centrality (0.086) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `main()` connect `Community 3` to `Community 5`, `Community 7`?",
+      "why": "High betweenness centrality (0.036) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `retrieve_relevant_schema()` connect `Community 0` to `Community 1`?",
+      "why": "High betweenness centrality (0.035) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 8 inferred relationships involving `SQLValidator` (e.g. with `GenerateRequest` and `GenerateResponse`) actually correct?",
+      "why": "`SQLValidator` has 8 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `$schema`, `.opencode/plugins/graphify.js`, `Config` to the rest of the system?",
+      "why": "6 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}

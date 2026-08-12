@@ -49,6 +49,7 @@ class RetrieveRequest(BaseModel):
 class RetrieveResponse(BaseModel):
     schema_context: str
     tables_found: list[str]
+    rules_context: str
 
 
 @router.post("/generate", response_model=GenerateResponse)
@@ -62,7 +63,17 @@ async def generate(req: GenerateRequest):
     if not schema.strip():
         schema = get_schema_context()
 
-    result = generate_sql(req.question, schema)
+    try:
+        from app.rag.rules_retriever import retrieve_relevant_rules
+        rules = retrieve_relevant_rules(req.question)
+    except Exception:
+        rules = ""
+
+    context = schema
+    if rules:
+        context = f"{schema}\n\n{rules}"
+
+    result = generate_sql(req.question, context)
     validation = validator.validate(result.get("sql", ""))
 
     return GenerateResponse(
@@ -101,21 +112,23 @@ async def summarize(req: SummarizeRequest):
 @router.post("/retrieve", response_model=RetrieveResponse)
 async def retrieve(req: RetrieveRequest):
     from app.embeddings.retriever import retrieve_relevant_schema
-    import psycopg2
-    from app.config import settings
+    from app.rag.rules_retriever import retrieve_relevant_rules
 
     schema = retrieve_relevant_schema(req.question, req.top_k)
+    rules = retrieve_relevant_rules(req.question)
 
     tables_found = []
     for line in schema.split("\n"):
         if line.startswith("TABLE: "):
             tables_found.append(line[7:])
 
-    return RetrieveResponse(schema_context=schema, tables_found=tables_found)
+    return RetrieveResponse(schema_context=schema, tables_found=tables_found, rules_context=rules)
 
 
 @router.post("/index")
 async def index():
     from app.embeddings.indexer import index_schema
-    result = index_schema()
-    return {"status": "ok", **result}
+    from app.rag.rules_indexer import index_business_rules
+    schema_result = index_schema()
+    rules_result = index_business_rules()
+    return {"status": "ok", **schema_result, **rules_result}
