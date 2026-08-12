@@ -23,7 +23,7 @@ func (h *QueryHandler) Query(c *gin.Context) {
 		return
 	}
 
-	result, err := h.svc.ExecuteQuery(req)
+	result, err := h.svc.ExecuteQuery(req, c.GetString("request_id"))
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

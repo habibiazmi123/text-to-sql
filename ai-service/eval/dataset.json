@@ -1,0 +1,38 @@
+[
+  {
+    "question": "Berapa total revenue bulan lalu?",
+    "expected_sql": "SELECT SUM(o.total_amount) AS total_revenue FROM orders o JOIN payments p ON o.id = p.order_id WHERE o.status = 'completed' AND p.status = 'paid'",
+    "expected_tables": ["orders", "payments"],
+    "expected_rules": ["Revenue"]
+  },
+  {
+    "question": "10 customer dengan revenue terbesar",
+    "expected_sql": "SELECT c.name, SUM(o.total_amount) AS total_spent FROM customers c JOIN orders o ON c.id = o.customer_id WHERE o.status = 'completed' GROUP BY c.id, c.name ORDER BY total_spent DESC LIMIT 10",
+    "expected_tables": ["customers", "orders"],
+    "expected_rules": ["Revenue"]
+  },
+  {
+    "question": "Revenue per region bulan lalu",
+    "expected_sql": "SELECT r.name AS region, SUM(o.total_amount) AS revenue FROM orders o JOIN regions r ON o.region_id = r.id JOIN payments p ON o.id = p.order_id WHERE o.status = 'completed' AND p.status = 'paid' GROUP BY r.id, r.name ORDER BY revenue DESC",
+    "expected_tables": ["orders", "regions", "payments"],
+    "expected_rules": ["Revenue", "Monthly Revenue"]
+  },
+  {
+    "question": "Berapa banyak customer dengan segment enterprise?",
+    "expected_sql": "SELECT COUNT(*) FROM customers WHERE segment = 'enterprise'",
+    "expected_tables": ["customers"],
+    "expected_rules": ["Enterprise Customer"]
+  },
+  {
+    "question": "Total pesanan yang sudah completed dalam 30 hari terakhir",
+    "expected_sql": "SELECT COUNT(*) FROM orders WHERE status = 'completed' AND order_date >= CURRENT_DATE - INTERVAL '30 days'",
+    "expected_tables": ["orders"],
+    "expected_rules": []
+  },
+  {
+    "question": "Produk apa saja dengan kategori Electronics?",
+    "expected_sql": "SELECT name, price FROM products WHERE category = 'Electronics'",
+    "expected_tables": ["products"],
+    "expected_rules": []
+  }
+]

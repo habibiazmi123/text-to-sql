@@ -59,5 +59,7 @@ def generate_sql(question: str, schema: str, rules: str = "", examples: str = ""
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": user_prompt},
     ]
-    response = chat_completion(messages)
-    return parse_llm_sql_response(response)
+    response, stats = chat_completion(messages)
+    result = parse_llm_sql_response(response)
+    result["tokens_used"] = stats.get("tokens", 0)
+    return result

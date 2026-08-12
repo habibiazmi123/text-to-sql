@@ -1,4 +1,4 @@
-.PHONY: dev infra run-api run-ai test lint seed rag-index migrate setup
+.PHONY: dev infra run-api run-ai test lint seed rag-index migrate setup evaluate
 
 # --- Setup ---
 
@@ -39,6 +39,9 @@ seed:
 
 rag-index:
 	curl -X POST http://localhost:8000/ai/index
+
+evaluate:
+	cd ai-service && .venv/bin/python eval/evaluate.py
 
 # --- Test / Lint ---
 

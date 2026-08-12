@@ -9,11 +9,15 @@ def get_llm_client() -> OpenAI:
     )
 
 
-def chat_completion(messages: list[dict], model: str = None) -> str:
+def chat_completion(messages: list[dict], model: str = None) -> tuple[str, dict]:
+    """Returns (content, stats) where stats carries token usage for metrics."""
     client = get_llm_client()
     response = client.chat.completions.create(
         model=model or settings.llm_model,
         messages=messages,
         temperature=0.1,
     )
-    return response.choices[0].message.content
+    content = response.choices[0].message.content or ""
+    usage = getattr(response, "usage", None)
+    stats = {"tokens": usage.total_tokens if usage else 0}
+    return content, stats
