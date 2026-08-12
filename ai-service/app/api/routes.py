@@ -50,6 +50,7 @@ class RetrieveResponse(BaseModel):
     schema_context: str
     tables_found: list[str]
     rules_context: str
+    examples_context: str
 
 
 @router.post("/generate", response_model=GenerateResponse)
@@ -69,11 +70,13 @@ async def generate(req: GenerateRequest):
     except Exception:
         rules = ""
 
-    context = schema
-    if rules:
-        context = f"{schema}\n\n{rules}"
+    try:
+        from app.rag.examples_retriever import retrieve_similar_examples
+        examples = retrieve_similar_examples(req.question)
+    except Exception:
+        examples = ""
 
-    result = generate_sql(req.question, context)
+    result = generate_sql(req.question, schema, rules, examples)
     validation = validator.validate(result.get("sql", ""))
 
     return GenerateResponse(
@@ -113,22 +116,26 @@ async def summarize(req: SummarizeRequest):
 async def retrieve(req: RetrieveRequest):
     from app.embeddings.retriever import retrieve_relevant_schema
     from app.rag.rules_retriever import retrieve_relevant_rules
+    from app.rag.examples_retriever import retrieve_similar_examples
 
     schema = retrieve_relevant_schema(req.question, req.top_k)
     rules = retrieve_relevant_rules(req.question)
+    examples = retrieve_similar_examples(req.question)
 
     tables_found = []
     for line in schema.split("\n"):
         if line.startswith("TABLE: "):
             tables_found.append(line[7:])
 
-    return RetrieveResponse(schema_context=schema, tables_found=tables_found, rules_context=rules)
+    return RetrieveResponse(schema_context=schema, tables_found=tables_found, rules_context=rules, examples_context=examples)
 
 
 @router.post("/index")
 async def index():
     from app.embeddings.indexer import index_schema
     from app.rag.rules_indexer import index_business_rules
+    from app.rag.examples_indexer import index_sql_examples
     schema_result = index_schema()
     rules_result = index_business_rules()
-    return {"status": "ok", **schema_result, **rules_result}
+    examples_result = index_sql_examples()
+    return {"status": "ok", **schema_result, **rules_result, **examples_result}
