@@ -17,3 +17,14 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Generated / tooling output
+graphify-out/
+.playwright-mcp/
+.pytest_cache/
+ai-service/.pytest_cache/
+
+# frontend build + generated (its own .gitignore also covers node_modules/.next)
+frontend/.next/
+frontend/graphify-out/
+frontend/tsconfig.tsbuildinfo
